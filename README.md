@@ -1,2 +1,2 @@
 # primerCRUD
-Este es el repositorio de mi primerCRUD
+YES BABY, THANK YOU
