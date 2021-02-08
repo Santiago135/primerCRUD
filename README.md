@@ -1,2 +1,2 @@
 # primerCRUD
-YES BABY, THANK YOU
+Este es mi primer Create Read Update Delete
