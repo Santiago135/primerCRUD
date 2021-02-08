@@ -1,0 +1,22 @@
+﻿@model PrimerCrud.Models.Persona
+@{
+    ViewBag.Title = "Add User";
+}
+
+
+<body style="background: url('../Cliente/backgroundfoto.jpg')" );>
+    <h3>Añadir Persona</h3>
+    
+        @using (Html.BeginForm("AddUser", "AddUser", FormMethod.Post, new { role = "form", @class = "", }))
+        {
+            @Html.LabelFor(d => d.Nombre)<br />
+            @Html.TextBoxFor(d => d.Nombre, new { @class = "textbox" })<br />
+
+            @Html.LabelFor(d => d.Apellido)<br />
+            @Html.TextBoxFor(d => d.Apellido, new { @class = "textbox", })<br />
+
+            <button type="submit" class="btn btn-success" style="margin-top:10px;">Añadir</button>
+        }
+    
+</body>
+

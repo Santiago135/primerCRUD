@@ -1,0 +1,23 @@
+﻿@model PrimerCrud.Models.Usuario
+@{
+    ViewBag.Title = "CrearUsuario";
+}
+
+<body class="PEPE">
+    <h3>Crear Usuario</h3>
+
+    @using (Html.BeginForm("CrearUsuario", "Usuarios", FormMethod.Post, new { role = "form", @class = "", }))
+    {
+        @Html.LabelFor(d => d.User)<br />
+        @Html.TextBoxFor(d => d.User, new { @class = "textbox" })<br />
+
+        @Html.LabelFor(d => d.Contraseña)<br />
+        @Html.TextBoxFor(d => d.Contraseña, new { @class = "textbox", @type = "password"})<br />
+
+        @Html.DropDownListFor(d => d.IdTipoUsuario, Model.tiposDeUsuario, "Seleccione una opcion", new { @class = "textbox"})<br />
+        @Html.HiddenFor(d => d.IdPersona)
+
+        <button type="submit" class="btn btn-success" style="margin-top:10px;">Crear</button>
+    }
+
+</body>

@@ -1,0 +1,18 @@
+﻿@model PrimerCrud.Models.Usuario
+@{
+    ViewBag.Title = "Login";
+}
+<body class="PEPE">
+    <h2>Login</h2>
+    @using (Html.BeginForm("Login", "Access", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.LabelFor(d => d.User)<br />
+        @Html.TextBoxFor(d => d.User, new { @class = "textbox"})<br />
+
+        @Html.LabelFor(d => d.Contraseña)<br />
+        @Html.TextBoxFor(d => d.Contraseña, new { @class = "textbox", type = "password"})<br />
+
+        <button type="submit" class="btn btn-success" >Iniciar sesion</button>
+    }
+</body>
+

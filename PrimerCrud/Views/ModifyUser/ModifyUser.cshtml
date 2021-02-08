@@ -1,0 +1,19 @@
+﻿@model PrimerCrud.Models.Persona
+@{
+    ViewBag.Title = "Modify User";
+}
+
+<h3>Modificar Usuario</h3>
+
+@using (Html.BeginForm("ModifyUser", "ModifyUser", FormMethod.Post, new { role = "form", @class = "" }))
+{
+    @Html.LabelFor(d => d.Nombre)<br />
+    @Html.TextBoxFor(d => d.Nombre, new { @required = "required" })<br />
+
+    @Html.LabelFor(d => d.Apellido)<br />
+    @Html.TextBoxFor(d => d.Apellido, new { @required = "required" })<br />
+    @Html.HiddenFor(d => d.Id)
+
+<button type="submit" class="btn btn-success" style="margin-top:2px; ">Listo</button>
+}
+
