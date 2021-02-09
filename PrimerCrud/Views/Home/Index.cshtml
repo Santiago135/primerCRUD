@@ -44,10 +44,10 @@
                             <label>@item.Apellido</label>
                         </td>
                         <td>
-                            <button onclick="document.location.href='@Url.Action("ModifyUser", "ModifyUser", new {Id = item.Id  })'">Modificar</button>
+                            <button class="btn btn-warning" onclick="document.location.href='@Url.Action("ModifyUser", "ModifyUser", new {Id = item.Id  })'">Modificar</button>
                         </td>
                         <td>
-                            <button style="margin-left:15px" onclick="ConfirmDelete('@Url.Action("DeleteUser", "DeleteUser", new {Id = item.Id  })');">Eliminar</button>
+                            <button class="btn btn-danger" style="margin-left:15px" onclick="ConfirmDelete('@Url.Action("DeleteUser", "DeleteUser", new {Id = item.Id  })');">Eliminar</button>
                         </td>
 
                     </tr>

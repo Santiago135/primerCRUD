@@ -35,7 +35,7 @@ namespace PrimerCrud.Controllers
             }
            
 
-            return Redirect(Url.Content("~/Home/"));
+            return Redirect(Url.Content("~/Inicio/"));
         }
     }
 }

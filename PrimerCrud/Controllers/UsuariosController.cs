@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PrimerCrud.Filtros;
+using System.Web.UI;
 
 namespace PrimerCrud.Controllers
 {
@@ -39,12 +40,6 @@ namespace PrimerCrud.Controllers
         [FiltroDeSession]
         public ActionResult MostrarUsuarios()
         {
-            //ServicioBaseDeDatosUsuarios servicio = new ServicioBaseDeDatosUsuarios();
-            //TipoDeUsuario tipo = new TipoDeUsuario();
-            //List<Usuario> lista = servicio.ListaUsuarios();
-
-            //return View(lista);
-
             ServicioBaseDeDatos service = new ServicioBaseDeDatos();
             List<TipoDeUsuario> listatipo = service.GetTipoDeUsuarios();
             List<Usuario> listaU = service.GetUsuarios();
@@ -75,6 +70,7 @@ namespace PrimerCrud.Controllers
 
             return Redirect(Url.Content("~/Inicio/"));
         }
+
         [HttpPost]
         public ActionResult Usuarios(Persona persona)
         {

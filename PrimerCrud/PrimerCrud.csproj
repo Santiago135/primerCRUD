@@ -136,14 +136,19 @@
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\AddUserController.cs" />
     <Compile Include="Controllers\DeleteUserController.cs" />
+    <Compile Include="Controllers\DeleteUsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\ModifyUserController.cs" />
+    <Compile Include="Controllers\ModifyUsuarioController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Filtros\FiltroDeSession.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ServiceDeleteUsuario.cs" />
+    <Compile Include="Models\ServiceModifyUsuario.cs" />
+    <Compile Include="Models\ServiceSelectUsuario.cs" />
     <Compile Include="Models\ServicioBaseDeDatosTipoDeUsuario.cs" />
     <Compile Include="Models\Conexion.cs" />
     <Compile Include="Models\Persona.cs" />
@@ -205,9 +210,11 @@
     <Content Include="Views\Usuarios\MostrarUsuarios.cshtml" />
     <Content Include="Views\Access\Login.cshtml" />
     <Content Include="Views\Inicio\Inicio.cshtml" />
+    <Content Include="Views\ModifyUsuario\ModifyUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DeleteUsuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

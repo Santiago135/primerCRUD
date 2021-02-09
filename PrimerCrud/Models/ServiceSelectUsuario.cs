@@ -6,22 +6,17 @@ using System.Web;
 
 namespace PrimerCrud.Models
 {
-    public class ServicioBaseDeDatosUsuarios : Conexion
+    public class ServiceSelectUsuario : Conexion
     {
-        List<Usuario> listaUser;
-        public void CrearUsuario(Usuario usuario)
+        Usuario usuarioById;
+        int Id;
+        public ServiceSelectUsuario()
         {
-            ServiceCreateUsuario service = new ServiceCreateUsuario(usuario);
-            service.CreateUsuario();
+            this.usuarioById = new Usuario();
         }
-
-        public ServicioBaseDeDatosUsuarios()
+        public Usuario GetById(int Id)
         {
-            this.listaUser = new List<Usuario>();
-        }
-
-        public List<Usuario> ListaUsuarios()
-        {
+            this.Id = Id;
             try
             {
                 Run();
@@ -29,32 +24,34 @@ namespace PrimerCrud.Models
             catch (Exception ex)
             {
                 string error = ex.ToString();
-                listaUser = null;
-                return listaUser;
+                usuarioById = null;
+                return usuarioById;
             }
-            return listaUser;
+            return usuarioById;
+
         }
 
         protected override void Process()
         {
 
             SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            if (reader.Read())
             {
                 Usuario usuario = new Usuario();
                 usuario.Id = (int)reader["id"];
-                usuario.IdPersona = (int)reader["idpersona"];
-                usuario.IdTipoUsuario = reader["idtipousuario"] == DBNull.Value ? usuario.IdTipoUsuario : (int)reader["idtipousuario"];
                 usuario.User = (string)reader["nombre"];
                 usuario.Contraseña = (string)reader["contraseña"];
-                listaUser.Add(usuario);
+                usuario.IdPersona = (int)reader["idpersona"];
+                usuario.IdTipoUsuario = reader["idtipousuario"] == DBNull.Value ? usuario.IdTipoUsuario : (int)reader["idtipousuario"];
+                this.usuarioById = usuario;
+
             }
         }
 
         protected override void Select()
         {
             command.Connection = conexion;
-            command.CommandText = "SELECT * FROM USUARIOS";
+            command.CommandText = "SELECT * FROM USUARIOS WHERE id =" + this.Id + "";
         }
     }
 }

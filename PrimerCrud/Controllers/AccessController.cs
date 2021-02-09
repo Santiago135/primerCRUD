@@ -32,7 +32,6 @@ namespace PrimerCrud.Controllers
             }
         }
 
-        
         public ActionResult Logout()
         {
             Session["User"] = null;

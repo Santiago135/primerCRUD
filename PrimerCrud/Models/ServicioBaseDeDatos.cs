@@ -10,7 +10,6 @@ namespace PrimerCrud.Models
     public class ServicioBaseDeDatos : Conexion
     {
         List<Persona> lista;
-        List<Usuario> listaUser;
 
         public ServicioBaseDeDatos() 
         {
@@ -21,6 +20,18 @@ namespace PrimerCrud.Models
         {
             ServiceCreatePersona service = new ServiceCreatePersona(persona);
             service.CreatePersona();
+        }
+
+        public void ModificarUsuario(Usuario usuario)
+        {
+            ServiceModifyUsuario service = new ServiceModifyUsuario(usuario);
+            service.ModifyUsuario();
+        }
+
+        public void EliminarUsuario(Usuario usuario)
+        {
+            ServiceDeleteUsuario service = new ServiceDeleteUsuario(usuario);
+            service.DeleteUsuario();
         }
 
         public void ModificarPersona(Persona persona)
@@ -40,6 +51,13 @@ namespace PrimerCrud.Models
             ServiceSelectPersonaById servicio = new ServiceSelectPersonaById();
             Persona personaARetornar = servicio.GetById(ID);
             return personaARetornar;
+        }
+
+        public Usuario CargarUsuarioPorId(int ID)
+        {
+            ServiceSelectUsuario servicio = new ServiceSelectUsuario();
+            Usuario usuarioARetornar = servicio.GetById(ID);
+            return usuarioARetornar;
         }
 
         public List<TipoDeUsuario> GetTiposDeUsuariosComboBox() 

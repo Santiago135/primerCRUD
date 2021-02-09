@@ -7,25 +7,27 @@ using System.Web.Mvc;
 
 namespace PrimerCrud.Controllers
 {
-    public class DeleteUserController : Controller
+    public class DeleteUsuarioController : Controller
     {
-        // GET: DeleteUser
-        public ActionResult DeleteUser(Persona persona)
+        // GET: DeleteUsuario
+        public ActionResult DeleteUsuario(Usuario usuario)
         {
-            Persona oUser = new Persona();
-            oUser.Id = persona.Id;
-            oUser.Nombre = persona.Nombre;
-            oUser.Apellido = persona.Apellido;
+            Usuario user = new Usuario();
+            user.Id = usuario.Id;
+            user.User = usuario.User;
+            user.Contraseña = usuario.Contraseña;
+            user.IdPersona = usuario.IdPersona;
+            user.IdTipoUsuario = usuario.IdTipoUsuario;
+
             try
             {
                 ServicioBaseDeDatos servicio = new ServicioBaseDeDatos();
-                servicio.EliminarPersona(oUser);
+                servicio.EliminarUsuario(user);
             }
             catch (Exception ex)
             {
                 ex.ToString();
             }
-
 
             return Redirect(Url.Content("~/Inicio/"));
         }

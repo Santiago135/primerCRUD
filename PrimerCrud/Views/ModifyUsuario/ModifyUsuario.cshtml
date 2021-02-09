@@ -1,0 +1,20 @@
+﻿@model PrimerCrud.Models.Usuario
+@{
+    ViewBag.Title = "ModifyUsuario";
+}
+
+<h2>Modificar Usuario</h2>
+
+@using (Html.BeginForm("ModifyUsuario", "ModifyUsuario", FormMethod.Post, new { role = "form", @class = ""}))
+{
+    @Html.LabelFor(d=>d.User)<br />
+    @Html.TextBoxFor(d=>d.User, new { @class = "text-box"})<br />
+
+    @Html.LabelFor(d=>d.Contraseña)<br />
+    @Html.TextBoxFor(d=>d.Contraseña, new { @class = "text-box", @type = "password"})<br />
+
+    @Html.HiddenFor(d=>d.Id)
+
+<button class="btn btn-success" type="submit" style="margin-top:2px">Listo</button>
+}
+

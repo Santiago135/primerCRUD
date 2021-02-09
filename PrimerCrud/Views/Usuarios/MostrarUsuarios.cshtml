@@ -3,43 +3,56 @@
     ViewBag.Title = "MostrarUsuarios";
 }
 
-        
-        <div class="container" style="margin-top:7%; background: rgba(255,255,255,0.8); border-radius:10px">
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <td>
-                            Usuario
-                        </td>
-                        <td>
-                            Contraseña
-                        </td>
-                        <td>
-                            Tipo de usuario
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                    <tr>
-                        <td>
-                            <label>@item.User </label>
-                        </td>
-                        <td>
-                            <label>@item.Contraseña</label>
-                        </td>
-                        <td>
-                            <label>@item.UserType</label>
-                        </td>
-                        <td>
-                            <button class="btn btn-default">Modificar</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger">Eliminar</button>
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+
+<div class="container" style="margin-top:7%; background: rgba(255,255,255,0.8); border-radius:10px">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>
+                    Usuario
+                </td>
+                <td>
+                    Contraseña
+                </td>
+                <td>
+                    Tipo de usuario
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <label>@item.User </label>
+                    </td>
+                    <td>
+                        <label>@item.Contraseña</label>
+                    </td>
+                    <td>
+                        <label>@item.UserType</label>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" onclick="document.location.href='@Url.Action("ModifyUsuario", "ModifyUsuario", new {Id = item.Id  })'">Modificar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="ConfirmDelete('@Url.Action("DeleteUser", "DeleteUser", new {Id = item.Id  })');">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function ConfirmDelete(url) {
+        if (window.confirm('¿Desea usted realmente seguro seguro pero re seguro borrar este usuario re facherite?')) {
+            window.location.href = url;
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+</script>
