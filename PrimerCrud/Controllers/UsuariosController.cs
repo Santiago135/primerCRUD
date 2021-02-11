@@ -13,12 +13,14 @@ namespace PrimerCrud.Controllers
     {
         //GET: Usuarios
         //Verifica que la persona exista
+        [FiltroDeSecretaria]
         public ActionResult Usuarios()
         {
             Persona persona = new Persona();
             return View(persona);
         }
         //Crea el usuario
+        [FiltroDeSecretaria]
         public ActionResult CrearUsuario()
         {
             Usuario usuario = new Usuario();
@@ -38,6 +40,7 @@ namespace PrimerCrud.Controllers
 
         //Muestra los usuarios
         [FiltroDeSession]
+        [FiltroDeSecretaria]
         public ActionResult MostrarUsuarios()
         {
             ServicioBaseDeDatos service = new ServicioBaseDeDatos();

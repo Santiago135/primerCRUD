@@ -1,4 +1,5 @@
-﻿using PrimerCrud.Models;
+﻿using PrimerCrud.Filtros;
+using PrimerCrud.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace PrimerCrud.Controllers
     public class DeleteUsuarioController : Controller
     {
         // GET: DeleteUsuario
+        [FiltroDeAdmin]
         public ActionResult DeleteUsuario(Usuario usuario)
         {
             Usuario user = new Usuario();

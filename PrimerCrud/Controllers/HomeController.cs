@@ -13,6 +13,7 @@ namespace PrimerCrud.Controllers
     public class HomeController : Controller
     {
         [FiltroDeSession]
+        [FiltroDeSecretaria]
         public ActionResult Index()
         {
             ServicioBaseDeDatos service = new ServicioBaseDeDatos();

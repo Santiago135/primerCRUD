@@ -9,13 +9,30 @@ namespace PrimerCrud.Controllers
 {
     public class ModifyUsuarioController : Controller
     {
+        //public ActionResult ModifyUsuario(int Id)
+        //{
+        //    ServicioBaseDeDatos servicio = new ServicioBaseDeDatos();
+        //    Usuario usuario = servicio.CargarUsuarioPorId(Id);
+
+        //    return View(usuario);
+        //}
         public ActionResult ModifyUsuario(int Id)
         {
+            UsuarioComboBox combo = new UsuarioComboBox();
             ServicioBaseDeDatos servicio = new ServicioBaseDeDatos();
             Usuario usuario = servicio.CargarUsuarioPorId(Id);
+            List<TipoDeUsuario> lista = servicio.GetTiposDeUsuariosComboBox();
+
+            combo.tiposDeUsuario = lista.Select(x => new SelectListItem
+            {
+                Text = x.Nombre,
+                Value = x.Tipo.ToString()
+            });
+            usuario.tiposDeUsuario = combo.tiposDeUsuario;
 
             return View(usuario);
         }
+
 
         [HttpPost]
         public ActionResult ModifyUsuario(Usuario usuario)

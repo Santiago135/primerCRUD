@@ -28,7 +28,15 @@ namespace PrimerCrud.Controllers
             else
             {
                 Session["User"] = usuarioEnCuestion;
-                return Redirect("~/Usuarios/MostrarUsuarios");
+                if(usuarioEnCuestion.IdTipoUsuario == 1)
+                {
+                    return RedirectToAction("MiPerfil", "MiPerfil", new { Id = usuarioEnCuestion.Id});
+                }
+                else
+                {
+                    return Redirect("~/Usuarios/MostrarUsuarios");
+                }
+                
             }
         }
 

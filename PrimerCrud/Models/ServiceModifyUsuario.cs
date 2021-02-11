@@ -36,7 +36,7 @@ namespace PrimerCrud.Models
         protected override void Select()
         {
             command.Connection = conexion;
-            command.CommandText = "UPDATE USUARIOS SET NOMBRE = '" + this.usuarioAEditar.User+ "', CONTRASEÑA = '" + this.usuarioAEditar.Contraseña + "' WHERE ID = " + this.usuarioAEditar.Id + "";
+            command.CommandText = "UPDATE USUARIOS SET NOMBRE = '" + this.usuarioAEditar.User+ "', CONTRASEÑA = '" + this.usuarioAEditar.Contraseña + "', IDTIPOUSUARIO = " + this.usuarioAEditar.IdTipoUsuario + " WHERE ID = " + this.usuarioAEditar.Id + "";
         }
     }
 }

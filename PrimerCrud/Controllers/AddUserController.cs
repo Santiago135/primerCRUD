@@ -1,4 +1,5 @@
-﻿using PrimerCrud.Models;
+﻿using PrimerCrud.Filtros;
+using PrimerCrud.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,7 +12,7 @@ namespace PrimerCrud.Controllers
     public class AddUserController : Controller
     {
         // GET: AddUser
-
+        [FiltroDeSecretaria]
         public ActionResult AddUser()
         {
             Persona persona = new Persona();
