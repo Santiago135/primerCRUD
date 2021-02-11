@@ -2,6 +2,33 @@
 @{
     ViewBag.Title = "MiPerfil";
 }
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<body>
+    <div class="container miperfil">
+        <div class="box">
+            <span></span>
+            <div class="contenido">
+                <h3>MiPerfil</h3>
+                <h4>Usuario: </h4>
+                @Model.User <br />
+                <div class="contra ">
+                    <h4>Contraseña:</h4>
+                    <div id="contra">*******</div>
+                </div><br />
+                <input type="checkbox" onclick="myFunction()"> Mostrar Contraseña
+            </div>
+        </div>
+    </div>
+</body>
 
-<h3>MiPerfil</h3>
-Tu usuario es: @Model.User
+<script>
+    function myFunction() {
+        var x = document.getElementById("contra");
+        if (x.innerHTML === "*******") {
+            x.innerHTML = "@Model.Contraseña";
+        } else {
+            x.innerHTML = "*******";
+        }
+    }
+</script>
