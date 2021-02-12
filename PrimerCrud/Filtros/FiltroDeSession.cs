@@ -12,9 +12,6 @@ namespace PrimerCrud.Filtros
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-
-
-
             Usuario sesionModel = (Usuario)context.HttpContext.Session.Contents["User"];
             //if not in DB
             if (sesionModel == null)
