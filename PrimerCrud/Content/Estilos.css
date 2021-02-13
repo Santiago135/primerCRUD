@@ -92,11 +92,11 @@
     transition:0.3s;
 }
 
-.barra:hover {
-    background-color:lawngreen;
-    border-radius: 10px;
-    color:black;
-}
+    .barra:hover {
+        background: linear-gradient(45deg, #5f5, #fcfc03);
+        border-radius: 10px;
+        color: black;
+    }
 
 .barraa {
     transition: 0.3s;

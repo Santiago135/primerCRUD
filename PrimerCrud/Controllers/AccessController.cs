@@ -30,7 +30,7 @@ namespace PrimerCrud.Controllers
                 Session["User"] = usuarioEnCuestion;
                 if(usuarioEnCuestion.IdTipoUsuario == 1)
                 {
-                    return RedirectToAction("MiPerfil", "MiPerfil", new { Id = usuarioEnCuestion.Id});
+                    return RedirectToAction("MiPerfil", "MiPerfil");
                 }
                 else
                 {

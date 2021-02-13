@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using PrimerCrud.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,15 +22,24 @@
                 @Html.ActionLink("Nombre de la aplicación", "Inicio", "Inicio", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @if (Session["user"] != null)
+                {
                 <ul class="nav navbar-nav">
                     <li class="barra">@Html.ActionLink("Inicio", "Inicio", "Inicio")</li>
-                    <li class="barra">@Html.ActionLink("Lista de Personas", "Index", "Home")</li>
                     <li class="barra">@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li class="barra">@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li class="barra" >@Html.ActionLink("Ver Usuarios", "MostrarUsuarios", "Usuarios")</li>
+
+                    @if (((Usuario)Session["user"]).IdTipoUsuario != 1)
+                    {
+                        <li class="barra">@Html.ActionLink("Ver Usuarios", "MostrarUsuarios", "Usuarios")</li>
+                        <li class="barra">@Html.ActionLink("Lista de Personas", "Index", "Home")</li>
+                    }
                     <li class="barra" style="margin-right:200px">@Html.ActionLink("Mi Perfil", "MiPerfil", "MiPerfil")</li>
+
                     <li class="barraa">@Html.ActionLink("Cerrar Sesion", "Logout", "Access")</li>
+
                 </ul>
+                }
             </div>
         </div>
     </div>
